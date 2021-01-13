@@ -7,7 +7,7 @@ import Backdrop from "../../UI/Backdrop/Backdrop"
 const links = [
     {to: '/', label: 'List', exact: true},
     {to: '/auth', label: 'Authorization', exact: false},
-    {to: '/quiz-creator', label: 'Create Test', exact: false},
+    {to: '/quiz-creator', label: 'Create Quiz', exact: false},
 ]
 
 class Drawer extends Component {

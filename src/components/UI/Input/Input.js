@@ -2,14 +2,13 @@ import React from 'react'
 import classes from './Input.module.css'
 
 function isInvalid({valid, touched, shouldValidate}) {
-    return !valid &&shouldValidate && touched
-
+    return !valid && shouldValidate && touched
 }
 
 const Input = props => {
     const inputType = props.type || 'text'
     const cls = [classes.Input]
-    const htmlFor = `${inputType} -${Math.random()}`
+    const htmlFor = `${inputType} - ${Math.random()}`
 
     if (isInvalid(props)) {
         cls.push(classes.invalid)
@@ -24,10 +23,14 @@ const Input = props => {
                 value={props.value}
                 onChange={props.onChange}
                 />
-            {isInvalid(props) ?  <span>{props.errorMessage || 'Please enter correct value'}</span> : null}
-
+            {
+                isInvalid(props)
+                    ? <span>{props.errorMessage || 'Please enter correct value'}</span>
+                    : null
+            }
         </div>
     )
 }
+
 
 export default Input
