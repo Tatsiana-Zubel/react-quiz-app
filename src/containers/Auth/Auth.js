@@ -7,7 +7,7 @@ import {connect} from "react-redux"
 import {auth} from "../../store/actions/auth"
 
 
- class Auth extends Component {
+class Auth extends Component {
 
     state = {
         isFormValid: false,
@@ -47,7 +47,7 @@ import {auth} from "../../store/actions/auth"
         )
     }
 
-    registerHandler = ()=> {
+    registerHandler = () => {
         this.props.auth(
             this.state.formControls.email.value,
             this.state.formControls.password.value,
@@ -119,7 +119,6 @@ import {auth} from "../../store/actions/auth"
         })
     }
 
-
     render() {
         return (
             <div className={classes.Auth}>
@@ -151,8 +150,9 @@ import {auth} from "../../store/actions/auth"
 }
 
 function mapDispatchToProps(dispatch) {
-     return {
-         auth: (email, password, isLogin) => dispatch(auth(email, password, isLogin))
-     }
+    return {
+        auth: (email, password, isLogin) => dispatch(auth(email, password, isLogin))
+    }
 }
+
 export default connect(null, mapDispatchToProps)(Auth)

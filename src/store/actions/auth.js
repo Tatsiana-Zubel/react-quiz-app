@@ -9,7 +9,7 @@ export function auth(email, password, isLogin) {
         }
 
         let url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDQjRjE5T1-KMYNZWZa4FG054sBwYITq2A'
-        if(isLogin) {
+        if (isLogin) {
             url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDQjRjE5T1-KMYNZWZa4FG054sBwYITq2A'
         }
         const response = await axios.post(url, authData)
@@ -22,7 +22,6 @@ export function auth(email, password, isLogin) {
 
         dispatch(authSuccess(data.idToken))
         dispatch(autoLogout(data.expiresIn))
-
     }
 }
 
@@ -42,6 +41,7 @@ export function logout() {
         type: AUTH_LOGOUT
     }
 }
+
 export function autoLogin() {
     return async dispatch => {
         const token = localStorage.getItem('token')
@@ -56,7 +56,6 @@ export function autoLogin() {
                 dispatch(autoLogout((expirationDate.getTime() - new Date().getTime()) / 1000))
             }
         }
-
     }
 }
 

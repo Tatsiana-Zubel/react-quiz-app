@@ -15,7 +15,6 @@ const AnswerItem = props => {
         >
             {props.answer.text}
         </li>
-
     )
 }
 

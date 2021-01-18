@@ -6,9 +6,10 @@ import Backdrop from "../../UI/Backdrop/Backdrop"
 
 class Drawer extends Component {
 
-    clickHandler = () =>{
+    clickHandler = () => {
         this.props.onClose()
     }
+
     renderLinks(links) {
         return links.map((link, index) => {
             return (
@@ -47,11 +48,11 @@ class Drawer extends Component {
 
         return (
             <React.Fragment>
-            <nav className={cls.join(' ')}>
-                <ul>
-                    {this.renderLinks(links)}
-                </ul>
-            </nav>
+                <nav className={cls.join(' ')}>
+                    <ul>
+                        {this.renderLinks(links)}
+                    </ul>
+                </nav>
                 {this.props.isOpen ? <Backdrop onClick={this.props.onClose}/> : null}
             </React.Fragment>
 

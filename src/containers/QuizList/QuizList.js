@@ -33,9 +33,9 @@ class QuizList extends Component {
 
                     {
                         this.props.loading && this.props.quizes.length !== 0
-                            ? <Loader />
+                            ? <Loader/>
                             : <ul>
-                                { this.renderQuizes() }
+                                {this.renderQuizes()}
                             </ul>
                     }
 

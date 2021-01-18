@@ -6,7 +6,7 @@ import Auxiliary from "../../hoc/Auxiliary/Auxiliary"
 import {createControl, validate, validateForm} from "../../form/formFramework"
 import Select from "../../components/UI/Select/Select";
 import {connect} from 'react-redux'
-import {createQiuizQuestion, finishCreateQuiz} from "../../store/actions/create"
+import {createQuizQuestion, finishCreateQuiz} from "../../store/actions/create"
 
 function createOptionControl(number) {
     return createControl({
@@ -29,7 +29,7 @@ function createFormControls() {
     }
 }
 
- class QuizCreator extends Component {
+class QuizCreator extends Component {
 
     state = {
         isFormValid: false,
@@ -68,13 +68,12 @@ function createFormControls() {
 
     createQuizHandler = event => {
         event.preventDefault()
-            this.setState({
-                isFormValid: false,
-                rightAnswerId: 1,
-                formControls: createFormControls()
-            })
-            this.props.finishCreateQuiz()
-
+        this.setState({
+            isFormValid: false,
+            rightAnswerId: 1,
+            formControls: createFormControls()
+        })
+        this.props.finishCreateQuiz()
     }
 
     changeHandler = (value, controlName) => {
@@ -115,7 +114,7 @@ function createFormControls() {
 
     selectChangeHandler = event => {
         this.setState({
-            rightAnswerId: + event.target.value
+            rightAnswerId: +event.target.value
         })
     }
 
@@ -162,7 +161,7 @@ function createFormControls() {
     }
 }
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
     return {
         quiz: state.create.quiz
     }
@@ -170,11 +169,9 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        createQiuizQuestion: item => dispatch(createQiuizQuestion(item)),
+        createQuizQuestion: item => dispatch(createQuizQuestion(item)),
         finishCreateQuiz: () => dispatch(finishCreateQuiz)
-
-
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps) (QuizCreator)
+export default connect(mapStateToProps, mapDispatchToProps)(QuizCreator)

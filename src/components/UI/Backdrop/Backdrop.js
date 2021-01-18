@@ -7,4 +7,4 @@ const Backdrop = props =>
         onClick ={props.onClick}
     />
 
-    export default Backdrop
+export default Backdrop

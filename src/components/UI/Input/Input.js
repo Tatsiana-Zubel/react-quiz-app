@@ -14,7 +14,7 @@ const Input = props => {
         cls.push(classes.invalid)
     }
 
-    return(
+    return (
         <div className={cls.join(' ')}>
             <label htmlFor={htmlFor}>{props.label}</label>
             <input
@@ -22,7 +22,7 @@ const Input = props => {
                 id={htmlFor}
                 value={props.value}
                 onChange={props.onChange}
-                />
+            />
             {
                 isInvalid(props)
                     ? <span>{props.errorMessage || 'Please enter correct value'}</span>

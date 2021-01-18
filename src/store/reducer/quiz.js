@@ -41,7 +41,7 @@ export default function quizReducer(state = initialState, action) {
         case QUIZ_SET_STATE:
             return {
                 ...state, answerState: action.answerState, results: action.results
-        }
+            }
         case FINISH_QUIZ:
             return {
                 ...state, isFinished: true,
