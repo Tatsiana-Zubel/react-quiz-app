@@ -1,11 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {BrowserRouter} from "react-router-dom";
-import './index.css';
-import App from './App';
-import {createStore, compose, applyMiddleware} from "redux";
+import React from 'react'
+import ReactDOM from 'react-dom'
+import {BrowserRouter} from "react-router-dom"
+import './index.css'
+import App from './App'
+import {createStore, compose, applyMiddleware} from "redux"
 import {Provider} from 'react-redux'
-import rootReducer from "./store/reducer/rootReducer";
+import rootReducer from "./store/reducer/rootReducer"
 import thunk from 'redux-thunk'
 
 const composeEnhancers =
@@ -29,6 +29,5 @@ const app = (
 )
 
 
-ReactDOM.render(app, document.getElementById('root')
-);
+ReactDOM.render(app, document.getElementById('root'))
 

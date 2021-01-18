@@ -6,7 +6,7 @@ import Auxiliary from "../../hoc/Auxiliary/Auxiliary"
 import {createControl, validate, validateForm} from "../../form/formFramework"
 import Select from "../../components/UI/Select/Select";
 import {connect} from 'react-redux'
-import {createQiuizQuestion, finishCreateQuiz} from "../../store/actions/create";
+import {createQiuizQuestion, finishCreateQuiz} from "../../store/actions/create"
 
 function createOptionControl(number) {
     return createControl({

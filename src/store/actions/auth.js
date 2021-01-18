@@ -1,5 +1,5 @@
 import axios from "axios"
-import {AUTH_LOGOUT, AUTH_SUCCESS} from "./actionTypes";
+import {AUTH_LOGOUT, AUTH_SUCCESS} from "./actionTypes"
 
 export function auth(email, password, isLogin) {
     return async dispatch => {
@@ -40,6 +40,23 @@ export function logout() {
     localStorage.removeItem('expirationDate')
     return {
         type: AUTH_LOGOUT
+    }
+}
+export function autoLogin() {
+    return async dispatch => {
+        const token = localStorage.getItem('token')
+        if (!token) {
+            dispatch(logout())
+        } else {
+            const expirationDate = new Date(localStorage.getItem('expirationDate'))
+            if (expirationDate <= new Date()) {
+                dispatch(logout())
+            } else {
+                dispatch(authSuccess(token))
+                dispatch(autoLogout((expirationDate.getTime() - new Date().getTime()) / 1000))
+            }
+        }
+
     }
 }
 
