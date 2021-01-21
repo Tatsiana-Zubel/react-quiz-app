@@ -58,7 +58,7 @@ class QuizCreator extends Component {
             ]
         }
 
-        this.props.createQiuizQuestion(questionItem)
+        this.props.createQuizQuestion(questionItem)
         this.setState({
             isFormValid: false,
             rightAnswerId: 1,
@@ -68,6 +68,7 @@ class QuizCreator extends Component {
 
     createQuizHandler = event => {
         event.preventDefault()
+
         this.setState({
             isFormValid: false,
             rightAnswerId: 1,
@@ -85,6 +86,7 @@ class QuizCreator extends Component {
         control.valid = validate(control.value, control.validation)
 
         formControls[controlName] = control
+
         this.setState({
             formControls,
             isFormValid: validateForm(formControls)
@@ -134,7 +136,7 @@ class QuizCreator extends Component {
         return (
             <div className={classes.QuizCreator}>
                 <div>
-                    <h1>Quiz creating</h1>
+                    <h1>Quiz creation</h1>
                     <form onSubmit={this.submitHandler}>
 
                         {this.renderControls()}
@@ -170,7 +172,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         createQuizQuestion: item => dispatch(createQuizQuestion(item)),
-        finishCreateQuiz: () => dispatch(finishCreateQuiz)
+        finishCreateQuiz: () => dispatch(finishCreateQuiz())
     }
 }
 
